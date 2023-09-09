@@ -7,7 +7,38 @@
 `Push`, `Repository`, `Clone`, `Pull`, `Pull Request`, `Branch`, `Merging`, `Github Client`, `README file`, `Private or Public`
 
 ```{r}
-# Add your photo here
+# The concept of github diagram is presented below
+```
+![](./githubdiagram.png)
+
+
+#### Question 1
+
+`matrix(c(1,2,3,4,5,6) , nrow = 3)`
+
+* Running the expression produces the following matrix
+
+|  |  |
+|---|---|
+| 1 | 4 |
+| 2 | 5 |
+| 3 | 6 |
+
+* How can you modify the call to `matrix()` to produce the following matrix instead?
+
+|   | col_1 |  col_2 |
+| --- |---|---|
+| row_1 | 1 | 2 |
+| row_2 | 3 | 4 |
+| row_3 | 5 | 6 |
+
+* Note that you need to name the columns (col_1 and col_2) and name the rows (row_1, row_2, row_3)
+
+Hint: Use the `?` symbol to invoke the matrix documentation
+
+```{r}
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, dimnames = list(c("row_1", "row_2", "row_3"), c("col_1", "col_2")))
 ```
 
 #### Question 1
@@ -35,35 +66,8 @@
 Hint: Use the `?` symbol to invoke the matrix documentation
 
 ```{r}
-# Add your code here
-```
-
-#### Question 1
-
-`matrix(c(1,2,3,4,5,6) , nrow = 3)`
-
-* Running the expression produces the following matrix
-
-|  |  |
-|---|---|
-| 1 | 4 |
-| 2 | 5 |
-| 3 | 6 |
-
-* How can you modify the call to `matrix()` to produce the following matrix instead?
-
-|   | col_1 |  col_2 |
-| --- |---|---|
-| row_1 | 1 | 2 |
-| row_2 | 3 | 4 |
-| row_3 | 5 | 6 |
-
-* Note that you need to name the columns (col_1 and col_2) and name the rows (row_1, row_2, row_3)
-
-Hint: Use the `?` symbol to invoke the matrix documentation
-
-```{r}
-# Write your answer here
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)
+matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, dimnames = list(c("row_1", "row_2", "row_3"), c("col_1", "col_2")))
 ```
 
 #### Question 2
@@ -73,7 +77,15 @@ Hint: Use the `?` symbol to invoke the matrix documentation
 * Display only the first 15 lines of your table
 
 ```{r}
-# Write your answer here
+data("airquality")
+airquality
+sorted_airquality_temp<-airquality[order(-airquality$Temp),]
+sorted_airquality_temp
+sorted_airquality_solar.R<-airquality[order(-airquality$Solar.R),]
+sorted_airquality_solar.R
+sorted_airquality_temp_solar.R <- airquality[order(-airquality$Temp,-airquality$Solar.R),]
+sorted_airquality_temp_solar.R
+head(sorted_airquality_temp_solar.R,15)
 ```
 
 #### Question 3
@@ -82,7 +94,13 @@ Hint: Use the `?` symbol to invoke the matrix documentation
 * Display only the first 15 lines of your table
 
 ```{r}
-# Write your answer here
+sorted_airquality_temp_dec<-airquality[order(-airquality$Temp),]
+sorted_airquality_temp_dec
+sorted_airquality_solar.R_inc<-airquality[order(airquality$Solar.R),]
+sorted_airquality_solar.R_inc
+sorted_airquality_temp_solar.R_dec_inc<-airquality[order(-airquality$Temp,airquality$Solar.R),]
+sorted_airquality_temp_solar.R_dec_inc
+head(sorted_airquality_temp_solar.R_dec_inc,15)
 ```
 
 #### Question 4
@@ -94,7 +112,10 @@ Hint: Use the `?` symbol to invoke the matrix documentation
 
 
 ```{r}
-# Write your answer here
+select72<-airquality[airquality$Temp==72,]
+select72
+choice72<-subset(airquality,Temp==72)
+choice72
 ```
 
 #### Question 6
@@ -111,7 +132,12 @@ Hint: Use the `?` symbol to invoke the matrix documentation
   * How many lines have been removed?
 
 ```{r}
-# Write your answer here
+missing_rows_Solar.R_Ozone <- is.na(airquality$Solar.R) | is.na(airquality$Ozone)
+missing_rows_Solar.R_Ozone
+airquality_no_na <- airquality[!missing_rows_Solar.R_Ozone,]
+airquality_no_na
+lines_removed <- sum(missing_rows_Solar.R_Ozone)
+lines_removed 
 ```
 
 #### Question 7
