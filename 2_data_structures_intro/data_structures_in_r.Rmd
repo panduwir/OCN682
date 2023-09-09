@@ -148,6 +148,14 @@ lines_removed
     * The missing value for line 97 should be replaced with the average for month 8.
 
 ```{r}
-# Write your answer here
+data("airquality")
+impute_missing_solar <- function(data) {
+  monthly_avg <- tapply(data$Solar.R, list(data$Month), FUN = mean, na.rm = TRUE)
+  for (i in 1:nrow(data)) {if (is.na(data$Solar.R[i])) {month <- data$Month[i]
+  data$Solar.R[i] <- monthly_avg[month]}}
+  return(data)}
+airquality_imputed <- impute_missing_solar(airquality)
+airquality_imputed
+
 ```
 
