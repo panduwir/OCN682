@@ -1,4 +1,4 @@
-### Question 1 __Hello
+### Question 1
 
 *  Draw a concepts diagram that uses all the following R and programming terminology 
    * Include any missing keywords that will simplify the concepts diagrams 
@@ -12,9 +12,13 @@
 
 We can discuss your solution next week. However, you are welcome to attach an image here if you wish. The following syntax can be used to include an image in a Jupyter or notebook:
 
-```markdown
-![](image_URL)
 ```
+title: concept diagram
+ouput: html_document
+```
+#Concept diagram in R is presented below
+![](./diagram.png)
+#Concept diagram in R is shown above
 
 R users can, if they wish, include the URL where their image can be found.
 
@@ -34,9 +38,15 @@ R users can, if they wish, include the URL where their image can be found.
   * Text that reads: "the variable y contains the mean of 5 values."
   * Try to format (emphasize) the name `x` so it stands out.
 
-
+```
+title: this is a markdown test
+ouput: the variable y contains the mean of 5 values from x vector
+```
 ```{r}
-# Write you code in this cell
+x <- c(7, 9, 14, 25, 26)
+print(x)
+y <- mean(x)
+print(y)
 ```
 
 ### Question 3
@@ -51,7 +61,13 @@ In cell below:
 * Use an expression to show the calculated value; i.e., the number of seconds in a single day.
 
 ```{r}
-# Write you code in this cell
+sec_per_min <- 60
+print(sec_per_min)
+sec_per_hour <- sec_per_min * 60
+print(sec_per_hour)
+sec_per_day <- sec_per_hour * 24
+print(sec_per_day)
+
 ```
 
 ### Question 4
@@ -59,19 +75,25 @@ In cell below:
 * Recall that `c` creates atomic vectors
 
 * What does the following create? 
+      ** it creates a vector in R
   * Specifically, what is the of the data it contains?
+      ** it contains numeric and character
 
 `c(1, 2, 3, "Hi")`
 
 * Would the following be valid?
+    ** No, this script is not valid 
 
 `c(1, 2, 3, "Hi") + 1 `
 
 * How about 
+    ** Yes, this operation is valid
 
 `c(1, 2, 3, FALSE) + 1 `
 
 * Hint: recall that know that the function `class()` returns the atomic data type stored in a vector
+
+
 
 ### Question 5: 
 
@@ -88,8 +110,8 @@ In cell below:
     * Hint: you need a function that returns a sequence of values as a vector
 
 ```{r}
-# Write you code in this cell
-
+x_axis <- seq(0, 10, by = 0.5)
+print(x_axis)
 ```
 
 ### Create `y-axis` values
@@ -103,8 +125,8 @@ In cell below:
 * Hint: remember that arithmetic operations on a vector are evaluated element-wise
 
 ```{r}
-# Write you code in this cell
-
+y_axis <- x_axis^2 + 2 * x_axis + 3
+print(y_axis)
 ```
 
 ### Generate the plot of `x_axis` versus `y_axis`
@@ -124,8 +146,10 @@ In cell below:
   * Which default parameter controls the size of the symbol (dot here)?
 
 ```{r}
-# Write you code in this cell
-
+library(ggplot2)
+plot <- qplot(x_axis, y_axis, geom = "point", size = I(3)) +
+  labs(x = "My x_axis", y = "My y_axis", title = "My amazing plot of x_axis versus y_axis")
+print(plot)
 
 ```
 
