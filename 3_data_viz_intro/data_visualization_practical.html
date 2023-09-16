@@ -440,7 +440,24 @@ and <code>hwy</code> (y-axis) from the <code>mpg</code> dataset.</li>
 consumption of 15 miles per gallon.</li>
 <li>Extract only the manufacturer and model of these subcompacts.</li>
 </ul>
-<pre class="r"><code># Write your code here</code></pre>
+<pre class="r"><code>subcompact_15 &lt;- subset (mpg, class == &quot;subcompact&quot; &amp; cty == 15)
+subcompact_15</code></pre>
+<pre><code>## # A tibble: 4 × 11
+##   manufacturer model   displ  year   cyl trans     drv     cty   hwy fl    class
+##   &lt;chr&gt;        &lt;chr&gt;   &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;     &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 ford         mustang   4.6  1999     8 auto(l4)  r        15    21 r     subc…
+## 2 ford         mustang   4.6  1999     8 manual(m… r        15    22 r     subc…
+## 3 ford         mustang   4.6  2008     8 manual(m… r        15    23 r     subc…
+## 4 ford         mustang   4.6  2008     8 auto(l5)  r        15    22 r     subc…</code></pre>
+<pre class="r"><code>man_mod_15 &lt;- subcompact_15 [, c(&quot;manufacturer&quot;,&quot;model&quot;) ]
+man_mod_15</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   manufacturer model  
+##   &lt;chr&gt;        &lt;chr&gt;  
+## 1 ford         mustang
+## 2 ford         mustang
+## 3 ford         mustang
+## 4 ford         mustang</code></pre>
 <p><strong>Question 6</strong></p>
 <ul>
 <li><p>The following code generates a warning:</p>

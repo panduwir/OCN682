@@ -73,7 +73,10 @@ ggplot(data = mpg, aes(x = cty, y = hwy, color = class)) +
 * Extract only the manufacturer and model of these subcompacts.
 
 ```{r}
-# Write your code here
+subcompact_15 <- subset (mpg, class == "subcompact" & cty == 15)
+subcompact_15
+man_mod_15 <- subcompact_15 [, c("manufacturer","model") ]
+man_mod_15
 ```
 
 **Question 6**
