@@ -133,11 +133,19 @@ ggplot(size_mass, aes(size, mass)) +
 1. Add two new columns named `size_log10` and `mass_log10` containing the log10 values of `size` and `mass`, respectively. Then use these new columns for plotting.
 
 ```{r}
-# Write your code here (method 1)
+library(dplyr)
+size_mass <- size_mass %>%
+  mutate(size_log10 = log10 (size),
+         mass_log10 = log10 (mass))
+size_mass
 ```
 
 2. Use `scale_x_log10()` and `scale_y_log10()` to set different scales for the x and y aesthetics.
 
 ```{r}
-# Write your code here (method 2)
+ggplot(size_mass, aes(x = size_log10, y = mass_log10)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "log10(size)", y = "log10(mass)")
 ```
