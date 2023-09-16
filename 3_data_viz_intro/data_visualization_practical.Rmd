@@ -3,8 +3,21 @@
 * Provide at least two methods to view the number of rows and the number of columns in the `mpg` dataset.
 
 ```{r}
-# Write your code here
-
+library(ggplot2)
+data("mpg")
+mpg
+# first method
+number_row <- nrow (mpg)
+number_row
+number_column <- ncol (mpg)
+number_column
+# second method
+dimensions <- dim (mpg)
+dimensions
+total_row <- dimensions [1]
+total_row 
+total_columns <- dimensions [2]
+total_columns 
 ```
 
 **Question 2**
