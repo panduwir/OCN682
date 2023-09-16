@@ -47,7 +47,9 @@ The tilde (~) symbol inside the function specifies which variable is a function 
 
 
 ```{r}
-# Write your code here
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_grid(class ~ drv)
 ```
 
 **Question 4**
