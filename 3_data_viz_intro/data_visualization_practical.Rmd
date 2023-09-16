@@ -33,7 +33,9 @@ total_columns
 * Correct it so that the plot displays as intended.
 
 ```{r}
-# Write your code here
+#the color="blue" should be placed outside the aes()
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
 
 **Question 3**
