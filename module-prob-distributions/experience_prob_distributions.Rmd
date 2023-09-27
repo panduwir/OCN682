@@ -4,7 +4,10 @@ You are studying the population of a specific type of marine algae in different 
 
 
 ```{r}
-### Write your code here
+A <- rnorm(50,200,20)
+A
+B <- rnorm(50,220,20) 
+B
 ```
 
 ### Q1: Data Cleaning
