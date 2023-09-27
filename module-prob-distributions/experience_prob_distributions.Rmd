@@ -16,7 +16,17 @@ Check your dataset for any outliers.
 
 
 ```{r}
-### Write your code here
+data <- data.frame(Site = rep(c("A", "B"),each = 50),
+                   Algae= c(A,B))
+data
+boxplot(Algae~Site,data=data)
+outliers_A <- boxplot.stats(A)$out
+outliers_A
+outliers_B <- boxplot.stats(B)$out
+outliers_B
+data_selection <- data[!(data$Site == "A" & data$Algae %in% outliers_A) &
+                     !(data$Site == "B" & data$Algae %in% outliers_B), ]
+data_selection
 ```
 
 
