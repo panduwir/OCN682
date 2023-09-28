@@ -103,8 +103,12 @@ Compare the distributions of these two lists to determine if they originate from
 
 1. Use geom_density to create a density plot for each list on the same graph. Use different colors to distinguish between the two lists:
 ```{r}
-### Write your code here
-
+data_list <- data.frame(Group = factor(c(rep("List 1",length(list1)),
+                                         rep("List 2",length(list2)))),
+                        Values = c(list1,list2))
+data_list
+ggplot(data_list, aes (x = Values, fill = Group))+
+  geom_density(alpha=0.5)
 ```
 
 Examine the plot you have generated. Do you think list1 and list2 come from the same distribution or different distributions? Why?
@@ -112,4 +116,5 @@ Write down your observations and reasoning.
 
 
 * Write your answer below
+It seems like both data come from the same distribution since they have a similar pattern and deviation but different in mean
 
