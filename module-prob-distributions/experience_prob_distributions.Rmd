@@ -62,7 +62,10 @@ Imagine a scenario where you are studying the occurrences of a particular rare m
 Utilize a Poisson distribution to calculate the probability of observing exactly 5 occurrences in a month, and the probability of observing 3 or fewer occurrences in a month.
 
 ```{r}
-### Write your code here
+prob_5 <- dpois(5, 3)
+prob_5
+prob_3_or_fewer <- ppois(3,3) 
+prob_3_or_fewer
 ```
 
 ### Q5: 
