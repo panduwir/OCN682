@@ -34,11 +34,10 @@ data_selection
 
 Plot a Kernel Density Estimation (geom_density plot) to visualize the distribution of algal densities at both locations. 
 
-
-
-
 ```{r}
-### Write your code here
+library(ggplot2)
+ggplot(data_selection, aes(x = Algae, fill = Site))+
+  geom_density(alpha=0.05)
 ```
 
 ### Q3: Binomial Distribution
@@ -47,7 +46,14 @@ Suppose in a new survey, at each location, you take 10 random samples and in eac
 Simulate this scenario using a binomial distribution, and compare the probability of finding the species in at least 7 out of 10 samples at both locations.
 
 ```{r}
-### Write your code here
+Sample_A <- rbinom(10,1,0.7)
+Sample_A
+Sample_B <- rbinom(10,1,0.5)
+Sample_B
+result_A <- sum(Sample_A) >= 7
+result_A
+result_B <- sum(Sample_B) >= 7
+result_B
 ```
 
 ### Q4: Poisson Distribution
