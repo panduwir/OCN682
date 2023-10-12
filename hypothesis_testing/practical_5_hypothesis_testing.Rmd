@@ -12,8 +12,35 @@ Recall that the steps to carry out this analysis are as follows:
 
 1. Compute a test statistic to describe the observed difference between the expected and observed values.
    Hint: this was covred in the `pdf`
+```{r}
+T_obs <- 254
+T_exp <- 263
+n <- 350
+test_statistic_T <- abs(T_obs - T_exp) / sqrt (T_exp * (n - T_exp) / n)
+test_statistic_T
+```
+
+
 2. Quantify what is considered a normal sampling variation. In other words, use simulation to determine occurrnces resulting from normal statistical fluctuations. This involves simulating many instances of drawing 350 marbles from jars with a 3:1 ratio and seeing, using the test statistic above, the values that expects due to the randomness inherent to sampling alone.
+```{r}
+set.seed(123)
+n_simulation <- 100
+simulation_test_statistic_T <- replicate(n_simulation,
+                                         {simulation_T <- rbinom(1, n, 0.75)
+                                           abs(simulation_T - T_exp)/ sqrt (T_exp * (n - T_exp) / n)
+                                           })
+simulation_test_statistic_T
+```
+
 3. Compute an empirical p-value and explain your findings.
 
 Note that the approach described above is similar to the methodology discussed during our class exercise. However, unlike the procedure we followed in class, where we employed permutations as part of simulating a t-test-like process, this example doesn't necessitate permutations.
+```{r}
+p_value <- mean(simulation_test_statistic_T >= test_statistic_T)
+p_value
+```
+
+
+
+
 
