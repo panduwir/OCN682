@@ -39,7 +39,7 @@ Note that the approach described above is similar to the methodology discussed d
 p_value <- mean(simulation_test_statistic_T >= test_statistic_T)
 p_value
 ```
-
+#It indicates that there is no significant different between T_obs and T_exp since p-value is higher than 0.05
 
 
 
